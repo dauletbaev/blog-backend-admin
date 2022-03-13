@@ -5,7 +5,6 @@ import { cors } from './middlewares/cors.middleware';
 import authRoutes from './routes/auth';
 import aboutRoute from './routes/about';
 import blogRoutes from './routes/blog';
-import { authMiddleware } from './middlewares/auth.middleware';
 import { errorHandler } from './errors/error.middleware';
 import bootsrap from './bootsrap';
 
@@ -23,8 +22,8 @@ app.use(cors);
 
 // Routes
 app.use('/auth', authRoutes);
-app.use('/posts', authMiddleware, blogRoutes);
-app.use('/about', authMiddleware, aboutRoute);
+app.use('/posts', blogRoutes);
+app.use('/about', aboutRoute);
 
 // Global error handler (order matters)
 app.use(errorHandler);

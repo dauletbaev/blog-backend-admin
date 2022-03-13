@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { authMiddleware } from '../middlewares/auth.middleware';
 import {
   createPost,
   getPosts,
@@ -13,9 +14,9 @@ const router = Router();
 router.get('/', getPosts);
 router.get('/:slug', getPostById);
 
-router.post('/', createPost);
-router.put('/:slug', putPost);
-router.patch('/:slug', patchPost);
-router.delete('/:slug', deletePost);
+router.post('/', authMiddleware, createPost);
+router.put('/:slug', authMiddleware, putPost);
+router.patch('/:slug', authMiddleware, patchPost);
+router.delete('/:slug', authMiddleware, deletePost);
 
 export default router;
