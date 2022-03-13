@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "commonjs",
+    "target": "es6",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "strict": true,
+    "allowJs": false,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["./src/node_modules", "./src/typings"]
+}
