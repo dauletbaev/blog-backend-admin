@@ -46,7 +46,7 @@ export const getAbout: RequestHandler = async (req, res, next) => {
 
     if (error) throw new HttpError(500, error.message);
 
-    res.status(200).json({ ...data[0] });
+    res.status(200).json({ content: data[0][select] });
   } catch (error) {
     next(error);
   }
